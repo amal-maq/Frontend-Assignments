@@ -76,6 +76,7 @@ main {
     margin-top: 2vh;
 }
 
+
 #sec2 h2 {
     color: #F97300;
 }
@@ -158,6 +159,34 @@ form textarea {
     flex-direction: column;
     margin-top: 3vh;
     margin-bottom: 3vh;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  padding-top: 2vh;
+  animation: rotate 3s linear infinite;
+  transform-origin: 50% 65%;
+    margin-left:1vw;
+    margin-top:4vh;
+}
+
+@keyframes rotate{
+    0%{
+        
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+    
 }
 
 /* MEDIA QUERY FOR SCREENS LESS THAN 600PX */
