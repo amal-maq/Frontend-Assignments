@@ -1,0 +1,66 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const eventForm = document.getElementById('eventForm');
+    const eventList = document.getElementById('eventList');
+    let events = JSON.parse(localStorage.getItem('events')) || [];
+
+    // Load events from local storage
+    loadEvents();
+
+    // Form submission handler
+    eventForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const eventName = document.getElementById('eventName').value;
+        const eventDescription = document.getElementById('eventDescription').value;
+        const eventDateTime = document.getElementById('eventDateTime').value;
+
+        if (eventName && eventDescription && eventDateTime) {
+            const event = {
+                id: Date.now(),
+                name: eventName,
+                description: eventDescription,
+                dateTime: eventDateTime
+            };
+            events.push(event);
+            localStorage.setItem('events', JSON.stringify(events));
+            addEventToTable(event);
+            eventForm.reset();
+        }
+    });
+
+    // Load events from local storage and display them
+    function loadEvents() {
+        events.forEach(event => addEventToTable(event));
+    }
+
+    // Add event to the table
+    function addEventToTable(event) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${event.name}</td>
+            <td>${event.description}</td>
+            <td>${event.dateTime}</td>
+            <td>
+                <button onclick="editEvent(${event.id})">Edit</button>
+                <button onclick="deleteEvent(${event.id})">Delete</button>
+            </td>
+        `;
+        eventList.appendChild(row);
+    }
+
+    // Edit event
+    window.editEvent = function(id) {
+        const event = events.find(event => event.id === id);
+        document.getElementById('eventName').value = event.name;
+        document.getElementById('eventDescription').value = event.description;
+        document.getElementById('eventDateTime').value = event.dateTime;
+        deleteEvent(id);
+    };
+
+    // Delete event
+    window.deleteEvent = function(id) {
+        events = events.filter(event => event.id !== id);
+        localStorage.setItem('events', JSON.stringify(events));
+        eventList.innerHTML = '';
+        loadEvents();
+    };
+});

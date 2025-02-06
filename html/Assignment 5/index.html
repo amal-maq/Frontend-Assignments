@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Event Management Dashboard</h1>
+        <nav>
+            <a href="#">Home</a> |
+            <a href="#">About</a> |
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Create Event</h2>
+            <form id="eventForm">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" placeholder="Enter event name" required><br><br>
+                
+                <label for="eventDescription">Event Description:</label>
+                <textarea id="eventDescription" name="eventDescription" placeholder="Enter event description" required></textarea><br><br>
+                
+                <label for="eventDateTime">Date and Time:</label>
+                <input type="datetime-local" id="eventDateTime" name="eventDateTime" required><br><br>
+                
+                <button type="submit">Create Event</button>
+            </form>
+        </section>
+        <section>
+            <h2>Event List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Description</th>
+                        <th>Date & Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="eventList">
+                    <!-- Event data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Event Management Dashboard. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
