@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTask(task) {
         const taskItem = document.createElement('li');
         taskItem.className = 'task-item';
-
         const taskDetails = document.createElement('div');
         taskDetails.className = 'task-details';
         taskDetails.innerHTML = `
