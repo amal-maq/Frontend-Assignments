@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Chat Application</h1>
+    </header>
+    <div class="container">
+        <aside class="user-list">
+            <h2>Online Users</h2>
+            <ul>
+                <li>User 1 <span>(Online)</span></li>
+                <li>User 2 <span>(Offline)</span></li>
+                <!-- Add more users here -->
+            </ul>
+        </aside>
+        <section class="chat-window">
+            <div class="messages" id="messages">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="message-input">
+                <input type="text" id="messageInput" placeholder="Type your message...">
+                <button id="sendButton">Send</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>Settings | Privacy Policy</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
