@@ -25,7 +25,7 @@ document.getElementById("show").addEventListener("click", function () {
     } 
     else { 
         featureSection.style.display = "none"; // Hide section
-       
+       // this is for (if we got more time) add a plus button kinda thing and toggle it with it
     }
 });
 
