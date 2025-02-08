@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expense Splitter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Expense Splitter</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Expense History</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="expense-entry">
+            <h2>Add New Expense</h2>
+            <form id="expense-form">
+                <label for="description">Expense Description:</label>
+                <input type="text" id="description" name="description" required>
+                <span class="error" id="description-error"></span>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+                <span class="error" id="amount-error"></span>
+
+                <label for="payer">Payer:</label>
+                <select id="payer" name="payer" required>
+                    <option value="">Select a payer</option>
+                    <option value="member1">Member 1</option>
+                    <option value="member2">Member 2</option>
+                    <option value="member2">Member 3</option>
+                    <option value="member2">Member 4</option>
+                    <option value="member2">Member 5</option>
+                    <option value="member2">Member 6</option>
+                </select>
+                <span class="error" id="payer-error"></span>
+
+                <button type="submit" id="submit-button" disabled>Split Expense</button>
+            </form>
+        </section>
+
+        <section id="user-list">
+            <h2>Group Members</h2>
+            <ul>
+                <li><img src="" alt="Placeholder image for Member 1"> Member 1</li>
+                <li><img src="" alt="Placeholder image for Member 2"> Member 2</li>
+                <li><img src="" alt="Placeholder image for Member 2"> Member 3</li>
+                <li><img src="" alt="Placeholder image for Member 2"> Member 4</li>
+                <li><img src="" alt="Placeholder image for Member 2"> Member 5</li>
+                <li><img src="" alt="Placeholder image for Member 2"> Member 6</li>
+            </ul>
+        </section>
+
+        <section id="summary">
+            <h2>Expense Summary</h2>
+            <p>Total Expenses: $0.00</p>
+            <p>Breakdown: To be updated later</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us at: group@example.com</p>
+        <p>&copy; 2025 Travel Expense Splitter</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
