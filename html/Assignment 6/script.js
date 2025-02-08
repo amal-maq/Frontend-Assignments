@@ -2,21 +2,26 @@ document.getElementById('sendButton').addEventListener('click', function() {
     const messageInput = document.getElementById('messageInput');
     const messages = document.getElementById('messages');
 
-    // Get the message from the input field
     const messageText = messageInput.value;
 
     if (messageText.trim() !== '') {
-        // Create a new message element
         const messageElement = document.createElement('div');
         messageElement.textContent = messageText;
-
-        // Add the message to the chat window
+        messageElement.style.border = "1px grey";
+        messageElement.style.backgroundColor = "#A6CDC6"
+        //messageElement.style = "15vw";
+        messageElement.style.width = "20vw";
+        messageElement.style.height = "15vh";
+        messageElement.style.borderRadius = "5px";
+        messageElement.style.display = "flex";
+        messageElement.style.alignItems ="flex-start";
+        messageElement.style.paddingLeft = "1vw";
+        messageElement.style.paddingTop = "1vh";
+        messageElement.style.marginBottom = "1vh";
+    
         messages.appendChild(messageElement);
-
-        // Clear the input field
         messageInput.value = '';
 
-        // Scroll to the latest message
         messages.scrollTop = messages.scrollHeight;
     }
 });

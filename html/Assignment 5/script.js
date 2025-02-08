@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventList = document.getElementById('eventList');
     let events = JSON.parse(localStorage.getItem('events')) || [];
 
-    // Load events from local storage
     loadEvents();
 
-    // Form submission handler
+
     eventForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const eventName = document.getElementById('eventName').value;
@@ -27,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Load events from local storage and display them
+
     function loadEvents() {
         events.forEach(event => addEventToTable(event));
     }
 
-    // Add event to the table
+
     function addEventToTable(event) {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eventList.appendChild(row);
     }
 
-    // Edit event
+
     window.editEvent = function(id) {
         const event = events.find(event => event.id === id);
         document.getElementById('eventName').value = event.name;
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteEvent(id);
     };
 
-    // Delete event
+
     window.deleteEvent = function(id) {
         events = events.filter(event => event.id !== id);
         localStorage.setItem('events', JSON.stringify(events));

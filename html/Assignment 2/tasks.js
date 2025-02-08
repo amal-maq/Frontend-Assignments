@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.removeChild(taskItem);
             tasks.splice(tasks.indexOf(task), 1);
         });
-        // delete button's css
+        // delete button's css baad m edit krlena 
         deleteButton.style.backgroundColor = "#FB4141";
         deleteButton.style.borderRadius = "4px";
         deleteButton.style.border = "1px solid #C2856E";

@@ -2,16 +2,19 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color:#A6CDC6;
     margin: 0;
 }
 
 header, footer {
-    background-color: #f1f1f1;
+    background-color: #9DC08B;
+    color:white;
     padding: 10px;
     text-align: center;
 }
@@ -23,7 +26,7 @@ header, footer {
 
 .user-list {
     width:20vw;
-    background-color: #f9f9f9;
+    background-color: #F8F5E9;
     padding: 3vh;
     border-right: 1px solid #ddd;
     display: flex;
@@ -44,15 +47,19 @@ header, footer {
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    padding: 10px;
+    padding: 3vh;
+    height:80vh;
 }
 
 .messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    border-bottom: 1px solid #ddd;
+    flex-grow: 1;
+    max-height: 80vh;
+    overflow-y: scroll;
     background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 2vh;
+
 }
 
 .message-input {
@@ -83,7 +90,6 @@ header, footer {
     .container {
         flex-direction: column;
     }
-
     .user-list {
         width: 100%;
         border-right: none;
