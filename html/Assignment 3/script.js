@@ -1,80 +1,174 @@
-//  json data for the blogs 
 const blogPosts = [
-    { title: "Understanding LLMs", author: "Sam Altman",category:"Technology", date: "2023-01-01", summary: "Large Language Models (LLMs) like GPT and BERT are advanced AI systems that understand and generate human language using deep learning techniques. They rely on transformer architectures to process vast amounts of data, enabling applications such as content creation, chatbots, translation, and sentiment analysis. Despite their impressive capabilities, LLMs face challenges like high computational requirements and ethical concerns. Ongoing research aims to improve their efficiency and address these issues, making LLMs a transformative force in AI and natural language processing." },
-    { title: "The Future of AI", author: "Sam Altman", date: "2023-02-15",category:"Education", summary: "The future of AI is incredibly promising, with advancements poised to transform various industries. AI is expected to evolve from simple chatbots to sophisticated tools that provide real-time insights, automate complex processes, and predict trends1. Innovations in AI will drive emerging technologies like big data, robotics, and the Internet of Things (IoT), further expanding its possibilities2. As AI becomes more accessible, even small and midsized businesses will harness its power to enhance decision-making and deliver personalized experiences1. The ongoing development of AI will continue to shape our world, making it an indispensable part of daily life and business operations" },
-    { title: "Traveling the World", author: "William Shakespeare",category:"Travel", date: "2023-03-10", summary: "Traveling the world offers incredible experiences, from exploring diverse cultures to witnessing breathtaking landscapes. Whether you’re visiting iconic landmarks, indulging in local cuisines, or meeting new people, each journey enriches your perspective and creates lasting memories. With careful planning and an adventurous spirit, you can discover hidden gems and popular destinations alike, making the most of your travels. Embrace the adventure and let the world be your playground!" },
-    { title: "Healthy Lifestyle Tips", author: "Saket Gokhale",category:"Lifestyle", date: "2023-04-05", summary: "Maintaining a healthy lifestyle involves regular exercise, a balanced diet, staying hydrated, and getting enough sleep. Incorporating whole foods, such as fruits, vegetables, and lean proteins, while limiting processed foods and sugars, can significantly improve your well-being1. Additionally, managing stress, avoiding smoking, and limiting alcohol intake are crucial for long-term health2. By adopting these habits, you can enhance both your physical and mental health, leading to a more fulfilling life3" }
+    {
+        title: "Launch of DeepSeek shook the AI Market",
+        thumbnail: "",
+        author: "Amal Sharma",
+        category: "Technology",
+        publishedOn: "2025-02-01",
+        summary: "DeepSeek has caused a major disruption in the..."
+    },
+    {
+        title: "The Future of Quantum Computing",
+        thumbnail: "",
+        author: "Ananya Agarwal",
+        category: "Technology",
+        publishedOn: "2025-01-28",
+        summary: "Quantum computing is set to revolutionize the..."
+    },
+    {
+        title: "How Virtual Reality is Transforming Education",
+        thumbnail: "",
+        author: "Harsh Gupta",
+        category: "Education",
+        publishedOn: "2025-01-22",
+        summary: "Virtual reality (VR) has emerged as a powerful..."
+    },
+    {
+        title: "AI in Classrooms: A New Era for Education",
+        thumbnail: "",
+        author: "Tannu Bhagel",
+        category: "Education",
+        publishedOn: "2025-01-18",
+        summary: "AI tools are transforming how students learn by personalizing..."
+    },
+    {
+        title: "The Rise of Digital Nomads: How Remote Work is...",
+        thumbnail: "",
+        author: "Kanishka Gurjar",
+        category: "Business",
+        publishedOn: "2025-01-19",
+        summary: "Remote work is more than a trend; it's becoming a..."
+    },
+    {
+        title: "Navigating the Gig Economy: Opportunities and...",
+        thumbnail: "",
+        author: "David Thompson",
+        category: "Business",
+        publishedOn: "2025-01-15",
+        summary: "The gig economy is reshaping the workforce, offering..."
+    },
+    {
+        title: "Exploring the terrains of Himalaya",
+        thumbnail: "",
+        author: "Liam O'Connor",
+        category: "Travel",
+        publishedOn: "2025-01-15",
+        summary: "Himalayan exploration has reached new heights with..."
+    },
+    {
+        title: "A Backpacker’s Guide to Europe’s Hidden Gems",
+        thumbnail: "",
+        author: "Emily White",
+        category: "Travel",
+        publishedOn: "2025-01-12",
+        summary: "Explore Europe's off-the-beaten-path destinations that offer..."
+    },
+    {
+        title: "The Art of Mindful Eating: A Guide to Better Health",
+        thumbnail: "",
+        author: "Olivia Green",
+        category: "Lifestyle",
+        publishedOn: "2025-01-10",
+        summary: "Mindful eating is all about paying full attention to what..."
+    },
+    {
+        title: "The Minimalist Lifestyle: How Less is More",
+        thumbnail: "",
+        author: "Lucas Grey",
+        category: "Lifestyle",
+        publishedOn: "2025-01-05",
+        summary: "Minimalism isn't just about decluttering; it's about focusing..."
+    }
 ];
 
+let filteredBlogs=[...blogPosts];
 
-function loadBlogPosts(posts) {
-    const section = document.querySelector('main section');
-    section.innerHTML = ''; // Clear existing content
+const blogContainer=document.getElementById("blog")
 
-    posts.forEach(post => {
-        const article = document.createElement('article');
-        article.innerHTML = `
-            <h2>${post.title}</h2>
-            <p>by ${post.author} on ${post.date}</p>
-            <p>${post.summary}</p>
-        `;
-        section.appendChild(article);
-    });
+const renderBlogs=()=>{
+    
+    blogContainer.innerHTML = '';
+    if(filteredBlogs.length>0){
+        filteredBlogs.forEach((blog, index)=>{
+    
+            const article=document.createElement("article");
+    
+            article.innerHTML = `
+                <div class="blog-thumb">
+                <img src="" height="100%" />
+              </div>
+              <div>
+                <h2>${blog.title}</h2>
+                <p>
+                  <strong>Author:</strong> ${blog.author} |
+                  <strong>Published on:</strong> ${blog.publishedOn}
+                </p>
+                <p>
+                  <strong>Summary: </strong>${blog.summary}
+                </p>
+                <a href="#readmore1">Read More</a>
+              </div>
+            `;
+    
+            blogContainer.appendChild(article);
+            
+        })
+
+    }else{
+        const error=document.createElement("h1");
+    
+        error.innerHTML = ` 
+            No results found
+        `
+        blogContainer.appendChild(error);
+    }
+}
+renderBlogs();
+
+const filterBlog=(category)=>{                                  
+    if(category==="All"){
+        filteredBlogs=[...blogPosts]
+    }
+    else{
+        const updatedBlog=blogPosts.filter((blog, index)=>{
+            return blog.category===category
+        })
+        filteredBlogs=[...updatedBlog];
+        
+    }
+    renderBlogs();
 }
 
-function filterBlogPosts(query) {
-    const filteredPosts = blogPosts.filter(post => 
-        post.title.toLowerCase().includes(query.toLowerCase()) ||
-        post.author.toLowerCase().includes(query.toLowerCase())
-    );
-    loadBlogPosts(filteredPosts);
-}
+const categoryContainer=document.querySelectorAll("#categories li");
+categoryContainer.forEach((cat)=>{
+    cat.addEventListener("click", ()=>{
+   
+        
+        filterBlog(cat.textContent);
+    })
+})
 
 
-function filterByCategory(category) {
-    const filteredPosts = blogPosts.filter(post => post.category === category);
-    loadBlogPosts(filteredPosts);
-}
-
-
-function validateForm(event) {
+const searchBar=document.getElementById("searchBar")
+const searchBtn=document.getElementById("searchBtn");
+searchBtn.addEventListener("click", (event)=>{
     event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const query=searchBar.value.toLowerCase();
+    filteredBlogs=blogPosts.filter((blog)=>{
+        return (
+            blog.title.toLowerCase().includes(query) ||
+            blog.author.toLowerCase().includes(query)
+        )
+    })
+    renderBlogs();
+})
 
-    if (!name || !email) {
-        alert('Please fill in all fields.');
-        return false;
-    }
 
-    if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        return false;
-    }
-
-    alert('Subscription successful!');
-    return true;
+const handleSubscribe=(event)=>{
+    const subscriptionForm=document.getElementById("subscriptionForm");
+    event.preventDefault();
+    alert("Subscribed successfully!")
+    subscriptionForm.reset()
+    
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadBlogPosts(blogPosts);
-
-    const searchInput = document.querySelector('header form input[type="text"]');
-    searchInput.addEventListener('input', (event) => {
-        filterBlogPosts(event.target.value);
-    });
-
-    const categoryLinks = document.querySelectorAll('aside ul li a');
-    categoryLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const category = event.target.textContent;
-            filterByCategory(category);
-        });
-    });
-
-    const form = document.querySelector('aside form');
-    form.addEventListener('submit', validateForm);
-});
