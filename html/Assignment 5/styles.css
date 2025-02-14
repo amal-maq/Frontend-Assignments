@@ -54,6 +54,7 @@ form input, form textarea, form button {
 form button {
     background-color: #C1D8C3;
     color: white;
+    
     border: none;
     cursor: pointer;
 }

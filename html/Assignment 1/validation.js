@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = !valid;
     }
 
-    function showError(input, message) {      // this will be used for the errors to show below its field
+    function showError(input, message) {  // this will be used for the errors to show below its field
         const error = document.createElement('div');
         error.className = 'error';
         error.style.color = 'red';
         error.textContent = message;
-        input.parentNode.appendChild(error);         // the error div is inserted below the parent input field.
+        input.parentNode.appendChild(error);    // the error div is inserted below the parent input field.
     }
 
     

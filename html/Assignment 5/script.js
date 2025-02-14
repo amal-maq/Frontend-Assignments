@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventForm = document.getElementById('eventForm');
     const eventList = document.getElementById('eventList');
     let events = JSON.parse(localStorage.getItem('events')) || [];
-
+    const btn = document.getElementById('create-edit');
     loadEvents();
 
 
@@ -52,8 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('eventName').value = event.name;
         document.getElementById('eventDescription').value = event.description;
         document.getElementById('eventDateTime').value = event.dateTime;
+        btn.innerText ="Edit Event";
+        btn.addEventListener('click',function(){
+            if(btn.innerText == "Edit Event"){
+                btn.innerText = "Create Event";
+            }
+        })
         deleteEvent(id);
     };
+    
 
 
     window.deleteEvent = function(id) {
